@@ -171,7 +171,7 @@ class RecintosZoo {
     }           
 }
 const zoo = new RecintosZoo
-zoo.analisaRecintos('leao', 1)
+zoo.analisaRecintos('macaco', 1)
 
 export { RecintosZoo as RecintosZoo };
 
