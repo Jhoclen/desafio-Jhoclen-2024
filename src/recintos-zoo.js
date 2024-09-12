@@ -47,7 +47,7 @@ class RecintosZoo {
             return { erro: "Quantidade inválida" }
         }
         
-        const especie = this.animais[animal.toUpperCase()];
+        const especie = this.animais[animal.toUpperCase()]
         const tamanhoOcupado = especie.tamanho * quantidade
         const recintosViaveis = []
         const recintosValBioma = []
