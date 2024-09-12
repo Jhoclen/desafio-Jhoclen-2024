@@ -30,7 +30,9 @@ class RecintosZoo {
             { numero: 2, bioma: 'floresta', tamanhoTotal: 5, animaisExistentes: { especie:0}, espacoDisponivel: 0, espacoLivre: 0},
             { numero: 3, bioma: 'savana e rio', tamanhoTotal: 7, animaisExistentes:{especie:'GAZELA', quantidade: 1, peso:2} , espacoDisponivel: 0, espacoLivre: 0 },
             { numero: 4, bioma: 'rio', tamanhoTotal: 8, animaisExistentes: {especie:0}, espacoDisponivel: 0 , espacoLivre: 0},
-            { numero: 5, bioma: 'savana', tamanhoTotal: 9, animaisExistentes: {especie:'LEAO', quantidade: 1, peso:3} , espacoDisponivel: 0, espacoLivre: 0 }
+            { numero: 5, bioma: 'savana', tamanhoTotal: 9, animaisExistentes: {especie:'LEAO', quantidade: 1, peso:3} , espacoDisponivel: 0, espacoLivre: 0 },
+            { numero: 6, bioma: 'savana', tamanhoTotal: 6, animaisExistentes: { especie:'LEOPARDO', quantidade: 1, peso:2}, espacoDisponivel: 0, espacoLivre: 0},
+            { numero: 7, bioma: 'savana', tamanhoTotal: 12, animaisExistentes: {especie:'HIPOPOTAMO', quantidade: 1, peso:4 }, espacoDisponivel: 0 , espacoLivre: 0}
         ]
 
         
@@ -71,10 +73,20 @@ class RecintosZoo {
                     cont.push(i)
 
                 }else{
-                    if(i.animaisExistentes.especie == 0){
+                    if(i.animaisExistentes.especie == 0 ||  i.animaisExistentes.especie === 'HIPOPOTAMO'){
                         cont.push(i)
 
                     }
+                }
+            }
+            copia.length = 0
+            return cont.slice()
+        }
+        function hipotest(){
+            const cont = []
+            for(const i of copia){
+                if(i.animaisExistentes.especie != 'HIPOPOTAMO'){
+                    cont.push(i)
                 }
             }
             copia.length = 0
@@ -138,6 +150,9 @@ class RecintosZoo {
         testarCarnivoro(recintosValBioma)
         let copia = recintosViaveis.slice()
         recintosViaveis.length = 0
+        if(especie.nome == 'MACACO' || especie.nome == 'GAZELA'){
+            copia = hipotest()
+        }
         if(especie.nome =='MACACO' && quantidade == 1 ){
             copia = testeMacaco()
         }
@@ -171,7 +186,7 @@ class RecintosZoo {
     }           
 }
 const zoo = new RecintosZoo
-zoo.analisaRecintos('macaco', 1)
+zoo.analisaRecintos('gazela', 2)
 
 export { RecintosZoo as RecintosZoo };
 
