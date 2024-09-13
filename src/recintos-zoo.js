@@ -185,6 +185,7 @@ class RecintosZoo {
 
     }           
 }
+
 const zoo = new RecintosZoo
 zoo.analisaRecintos('leopardo', 1)
 
